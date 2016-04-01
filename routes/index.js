@@ -25,7 +25,6 @@ router.get('/signals/:endpoint/:sigid?', function(req, res, next) {
 			weights.push(a[1]);
 		}
 	}
-
     switch (endpoint) {
     case "norm":
     	makeRequest('signals',id, function(items) {
@@ -39,12 +38,8 @@ router.get('/signals/:endpoint/:sigid?', function(req, res, next) {
         break;
     case "combine":
     	makeRequest('signals',seriesID, function(items) {
-			findSeriesOverlap(items,seriesID,weights,res,linearCombo);
+			linearCombo(items,seriesID,weights,res);
     	});
-        break;
-    case "peaks":
-        break;
-    case "cross":
         break;
 	}		
 });
@@ -105,7 +100,6 @@ function rescaleVals(allObjs, res) {
 //******************* END NORMALIZATION *******************
 
 //******************* Z-SCORES *******************
-//should max window size be limited to some % of total num dates available?
 function findZscores(allObjs, numDays, res){
 	//only using one set of data
 	var objs = allObjs[0];
@@ -125,74 +119,42 @@ function findZscores(allObjs, numDays, res){
   //that have original values still, not z scores
   objs_zScores = objs_zScores.slice(numDays,objs_zScores.length);
   sendResponse(objs_zScores, res);
-  //return objs_zScores;
 }
 
 function findOneZscore(objs,numDays,t) {
-  //make subset of array corresponding to window
-  var objs_window = objs.slice(t-numDays,t);
- 
-  var sum = 0;
-  objs_window.map(function(num) {
-    sum = sum + num.value;
-  });
-  //console.log(sum);
-  var mean = sum/(objs_window.length);
-  //console.log(mean);
+	//make subset of array corresponding to window
+	var objs_window = objs.slice(t-numDays,t);
+	for (var i = objs_window.length - 2; i >= 0; i--) {
+		
+		var date1 = new Date(objs_window[i].date);
+		var date2 = new Date(objs_window[i+1].date);
+		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+		//console.log(diffDays);
+		if (diffDays != 1){
+			console.log(date1 + "  " + date2);
+		}
+	}
 
-  var stdsum = 0;
-  objs_window.map(function(num) {
-    stdsum = stdsum + Math.pow((num.value-mean),2);
-  });
-  stddev = Math.sqrt(stdsum/(objs_window.length));
-  
-  var zScore = (objs_window[numDays-1].value - mean)/(stddev);
-  return zScore;
+	var sum = 0;
+	objs_window.map(function(num) {
+	sum = sum + num.value;
+	});
+	//console.log(sum);
+	var mean = sum/(objs_window.length);
+	//console.log(mean);
+
+	var stdsum = 0;
+	objs_window.map(function(num) {
+		stdsum = stdsum + Math.pow((num.value-mean),2);
+	});
+	stddev = Math.sqrt(stdsum/(objs_window.length));
+
+	var zScore = (objs_window[numDays-1].value - mean)/(stddev);
+	return zScore;
 }
 //******************* END Z-SCORES *******************
 //******************* LINEAR COMBO *******************
-function findSeriesOverlap(objs,series,weights,res,alignDates) {
-	//console.log(objs[0].length);
-	var objsOverlap = objs;
-	//startDates are later in time but displayed at the top of array
-	var startDates = [];
-	var endDates = [];
-	for (var i = Object.keys(objs).length - 1; i >= 0; i--) {
-		var lastDateIndex = objs[i].length - 1;
-		startDates.push(objs[i][0].date);
-		endDates.push(objs[i][lastDateIndex].date);	
-	}
-	var startDate = startDates[0];
-	var endDate = endDates[0];
-
-	for (var i = startDates.length - 1; i >= 0; i--) {
-		if (startDates[i] < startDate) {
-			startDate = startDates[i];
-		}
-	}
-	for (var i = endDates.length - 1; i >= 0; i--) {
-		if (endDates[i] > endDate) {
-			endDate = endDates[i];
-		}
-	}
-	
-	var objsOverlap = {};
-
-	var startKey = _.findKey(objs[0], {'date': startDate});
-	var endKey = _.findKey(objs[0], {'date': endDate});
-
-	for (var i = Object.keys(objs).length - 1; i >= 0; i--) {
-		var startKey = _.findKey(objs[i], {'date': startDate});
-		var endKey = _.findKey(objs[i], {'date': endDate});
-		objsOverlap[i] = objs[i].slice(startKey,Number(endKey)+1);
-	}
-
-	for (var i = Object.keys(objsOverlap).length - 1; i >= 0; i--) {
-		var lastDateIndex = objsOverlap[i].length - 1;
-	}
-	linearCombo(objsOverlap,series,weights,res);	
-}
-
 function linearCombo(objs,series,weights,res) {
 	var objs_linearCombo = [];
 	for (var i = objs[0].length - 1; i >= 0; i--) {
@@ -214,6 +176,10 @@ function linearCombo(objs,series,weights,res) {
 		}
 		
 	}
+	// var lastDateIndex = objs_linearCombo.length - 1;
+	// console.log("first and last entries: ")
+	// console.log(objs_linearCombo[0]);
+	// console.log(objs_linearCombo[lastDateIndex]);
 	sendResponse(objs_linearCombo, res);
 }
 
