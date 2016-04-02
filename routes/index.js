@@ -9,10 +9,15 @@ router.get('/signals/:endpoint/:sigid?', function(req, res, next) {
 	var objs;
 	var endpoint = req.params.endpoint;
 	id = req.params.sigid;
-	var numDays = req.query.window;
+	var windowSize = req.query.window;
+	var numDays = parseInt(windowSize, 10);
 	var linComData = req.query.series; //series and weights 	
+	var peakMethod = req.query.method;
+	var boBoundary = req.query.boundary;
+	var breakoutBoundary = parseInt(boBoundary, 10);
 	var seriesID =[];
 	var weights =[];
+
 	if (typeof linComData == 'string' && typeof linComData !== 'undefined') {
 		var a = linComData.split(',');
 		seriesID.push(a[0]);
@@ -38,6 +43,20 @@ router.get('/signals/:endpoint/:sigid?', function(req, res, next) {
     case "combine":
     	makeRequest('signals',seriesID, function(items) {
 			linearCombo(items,weights,res);
+    	});
+        break;
+    case "peaks":
+    	//console.log("peak method to use: " + peakMethod, breakoutBoundary, numDays);
+    	makeRequest('signals',id, function(items) {
+			if (peakMethod == "highs"){
+				//console.log("do high");
+				detectHighPeaks(items, res);
+			} else if (peakMethod == "breakout") {
+				//console.log("do breakout");
+				//console.log(typeof breakoutBoundary);
+				//console.log(typeof numDays);
+				detectBreakoutPeaks(items,breakoutBoundary,numDays,res);
+			}
     	});
         break;
 	}		
@@ -96,9 +115,8 @@ function rescaleVals(allObjs, res) {
 //******************* END NORMALIZATION *******************
 
 //******************* Z-SCORES *******************
-function findZscores(allObjs, numDays, res){
+function findZscores(allObjs, number, res){
 	var objs = allObjs['0'];
-	var number = parseInt(numDays, 10);
 	if (number > objs.length) {
 		console.log("Window must be fewer than " + objs.length + " days.");
 		return;
@@ -154,4 +172,65 @@ function linearCombo(objs,weights,res) {
 
 //******************* END LINEAR COMBO *******************
 
+//******************* START DETECT PEAKS *******************
+function detectBreakoutPeaks(allObjs,breakoutBoundary,numDays,res) {
+	var objs = allObjs['0'];
+	var currHigh;
+	var peaks = [];
+	var objsClone = objs.slice(0);
+	objs.forEach(function(num,i) {
+		if (i <= (objs.length - numDays)) {
+			console.log(i, objs.length - numDays);
+			var objs_section = objsClone.slice(i, i+numDays+1);
+			var objs_window = objs_section.splice(0,objs_section.length-1);
+			var windowHigh = findPeakInWindow(objs_window);
+			var currValue = objs_section[objs_section.length-1].value;
+			if (currValue - windowHigh > breakoutBoundary) {
+				peaks.push(objs_section[objs_section.length-1].date);
+			}
+		}
+	});
+	sendResponse(peaks, res);
+}
+
+function findPeakInWindow(objs) {
+	var currHigh = objs[0].value;
+	objs.forEach(function(num) {
+		if (num.value > currHigh ) {
+			currHigh = num.value;
+		}
+	});
+	return currHigh;
+}
+
+function detectHighPeaks(allObjs, res) {
+	var objs = allObjs['0'];
+	var currHigh = objs[0].value;
+	var peaks = [];
+	objs.forEach(function(num) {
+		if (num.value > currHigh ) {
+			peaks.push(num.date);
+			currHigh = num.value;
+		}
+	});
+	sendResponse(peaks, res);
+}
+//******************* END DETECT PEAKS *******************
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
