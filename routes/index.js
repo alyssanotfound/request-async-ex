@@ -56,6 +56,7 @@ function makeRequest(endpoint, id, cb) {
 		request(requestPath, function (error, response, body) {		  
 			if (!error && response.statusCode == 200) {
 				allData[key] = JSON.parse(body);
+				//console.log(allData);
 				callback();
 			}
 		})
@@ -102,57 +103,55 @@ function rescaleVals(allObjs, res) {
 //******************* Z-SCORES *******************
 function findZscores(allObjs, numDays, res){
 	//only using one set of data
-	var objs = allObjs[0];
-	console.log(objs.length);
-	console.log(numDays);
-	if (numDays > objs.length) {
+	// console.log(allObjs)
+	var objs = allObjs['0'];
+	var number = parseInt(numDays, 10);
+	//console.log(objs);
+	// console.log(objs.length);
+	// console.log(numDays);
+	if (number > objs.length) {
 		console.log("Window must be fewer than " + objs.length + " days.");
 		return;
 	}
-  	var objs_zScores = objs.map(function(num, i) {
-	    if (i >= numDays){
-	      num.value = findOneZscore(objs,numDays,i); 
-	    } 
-    return num;
-  }); 
-  //once z scores are calculated cut out the objects in the array
-  //that have original values still, not z scores
-  objs_zScores = objs_zScores.slice(numDays,objs_zScores.length);
+	//var objs_window = objs.slice(60,70);
+	//var oneScore = findOneZscore(objs_window, 5);
+	//console.log(oneScore);
+
+	// console.log(objs[0]);
+	var objsClone = objs.slice(0);
+	var objs_zScores = [];
+
+	var filteredObjs = objsClone.slice(number, objs.length);
+
+  	filteredObjs.forEach(function(num, i) {
+  		console.log(num);
+	   	var objs_window = objsClone.slice(i, i + number);
+	    console.log(objs_window);
+	    //num.value = findOneZscore(objs_window); 
+	    var tempZscore = findOneZscore(objs_window);
+    	//objs_zScores.push(tempZscore);
+    	objs_zScores.push({date: num.date, value: tempZscore});
+  	}); 
   sendResponse(objs_zScores, res);
 }
 
-function findOneZscore(objs,numDays,t) {
-	//make subset of array corresponding to window
-	var objs_window = objs.slice(t-numDays,t);
-	for (var i = objs_window.length - 2; i >= 0; i--) {
-		
-		var date1 = new Date(objs_window[i].date);
-		var date2 = new Date(objs_window[i+1].date);
-		var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-		//console.log(diffDays);
-		if (diffDays != 1){
-			console.log(date1 + "  " + date2);
-		}
-	}
-
+function findOneZscore(objects) {
 	var sum = 0;
-	objs_window.map(function(num) {
-	sum = sum + num.value;
+	objects.forEach(function(num) {
+		sum = sum + num.value;
 	});
-	//console.log(sum);
-	var mean = sum/(objs_window.length);
-	//console.log(mean);
+	var mean = sum/(objects.length);
 
 	var stdsum = 0;
-	objs_window.map(function(num) {
+	objects.forEach(function(num) {
 		stdsum = stdsum + Math.pow((num.value-mean),2);
 	});
-	stddev = Math.sqrt(stdsum/(objs_window.length));
+	stddev = Math.sqrt(stdsum/(objects.length));
 
-	var zScore = (objs_window[numDays-1].value - mean)/(stddev);
+	var zScore = (objects[objects.length-1].value - mean)/(stddev);
 	return zScore;
 }
+
 //******************* END Z-SCORES *******************
 //******************* LINEAR COMBO *******************
 function linearCombo(objs,series,weights,res) {
