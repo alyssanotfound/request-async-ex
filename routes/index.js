@@ -127,7 +127,7 @@ function findZscores(allObjs, number, res){
   	filteredObjs.forEach(function(num, i) {
 	   	var objs_window = objsClone.slice(i, i + number);
 	    var tempZscore = findOneZscore(objs_window);
-    	objs_zScores.push({date: num.date, value: tempZscore});
+    	objs_zScores.push({date: objs_window[objs_window.length-1].date, value: tempZscore});
   	}); 
   	sendResponse(objs_zScores, res);
 }
@@ -180,7 +180,6 @@ function detectBreakoutPeaks(allObjs,breakoutBoundary,numDays,res) {
 	var objsClone = objs.slice(0);
 	objs.forEach(function(num,i) {
 		if (i <= (objs.length - numDays)) {
-			console.log(i, objs.length - numDays);
 			var objs_section = objsClone.slice(i, i+numDays+1);
 			var objs_window = objs_section.splice(0,objs_section.length-1);
 			var windowHigh = findPeakInWindow(objs_window);
