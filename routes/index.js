@@ -46,15 +46,10 @@ router.get('/signals/:endpoint/:sigid?', function(req, res, next) {
     	});
         break;
     case "peaks":
-    	//console.log("peak method to use: " + peakMethod, breakoutBoundary, numDays);
     	makeRequest('signals',id, function(items) {
 			if (peakMethod == "highs"){
-				//console.log("do high");
 				detectHighPeaks(items, res);
 			} else if (peakMethod == "breakout") {
-				//console.log("do breakout");
-				//console.log(typeof breakoutBoundary);
-				//console.log(typeof numDays);
 				detectBreakoutPeaks(items,breakoutBoundary,numDays,res);
 			}
     	});
@@ -78,7 +73,6 @@ function makeRequest(endpoint, id, cb) {
 		})
 	}, function (err) {
 	    if (err) console.error(err.message);
-	    //console.log(allData);
 	    cb(allData);
 	})
 }
@@ -127,7 +121,7 @@ function findZscores(allObjs, number, res){
   	filteredObjs.forEach(function(num, i) {
 	   	var objs_window = objsClone.slice(i, i + number);
 	    var tempZscore = findOneZscore(objs_window);
-    	objs_zScores.push({date: objs_window[objs_window.length-1].date, value: tempZscore});
+    	objs_zScores.push({date: objs_window[objs_window.length-1].date, value: tempZscore});	
   	}); 
   	sendResponse(objs_zScores, res);
 }
@@ -178,15 +172,14 @@ function detectBreakoutPeaks(allObjs,breakoutBoundary,numDays,res) {
 	var currHigh;
 	var peaks = [];
 	var objsClone = objs.slice(0);
-	objs.forEach(function(num,i) {
-		if (i <= (objs.length - numDays)) {
-			var objs_section = objsClone.slice(i, i+numDays+1);
-			var objs_window = objs_section.splice(0,objs_section.length-1);
-			var windowHigh = findPeakInWindow(objs_window);
-			var currValue = objs_section[objs_section.length-1].value;
-			if (currValue - windowHigh > breakoutBoundary) {
-				peaks.push(objs_section[objs_section.length-1].date);
-			}
+	var filteredObjs = objsClone.slice(numDays, objs.length);
+	filteredObjs.forEach(function(num,i) {
+		var objs_section = objsClone.slice(i, i+numDays+1);
+		var objs_window = objs_section.splice(0,objs_section.length-1);
+		var windowHigh = findPeakInWindow(objs_window);
+		var currValue = objs_section[objs_section.length-1].value;
+		if (currValue - windowHigh > breakoutBoundary) {
+			peaks.push(objs_section[objs_section.length-1].date);
 		}
 	});
 	sendResponse(peaks, res);
@@ -216,19 +209,6 @@ function detectHighPeaks(allObjs, res) {
 }
 //******************* END DETECT PEAKS *******************
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
