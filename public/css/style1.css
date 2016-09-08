@@ -1,0 +1,85 @@
+.textinfo {
+    text-align: center;
+    line-height: 2em;
+    padding: 0.5em;
+}
+
+.centerblock {
+    width: 320px;
+    height: 610px;
+    /*border: 1px solid black;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.imgblock {
+    width: 320px;
+    height: 568px;
+    /*border: 1px solid pink;*/
+    float: left;
+    background-size: 320px 568px;
+    background-repeat: no-repeat;
+    overflow:hidden;
+}
+
+#imgb {
+    height: 0;
+}
+#imgc {
+    height: 0;
+}
+#imgb > * {
+    display: none;
+    height: 0;
+}
+#imgc > * {
+    display: none;
+    height: 0;
+}
+
+@media only screen and (min-width: 1026px) {
+    /* For desktop: */
+    .centerblock {
+        width: 960px;
+    }
+    .textinfo {
+        float: right;
+        text-align: right;
+    }
+    #imgb > * {
+        display: block;
+        width: 320px;
+        height: 568px;
+    }
+    #imgc > * {
+        display: block;
+        width: 320px;
+        height: 568px;
+    }
+    #imgb {
+        height: 568px;
+    }
+    #imgc {
+        height: 568px;
+    }
+}
+
+@media (max-height: 580px) {
+    .centerblock {
+        bottom: auto;
+    }
+}
+
+/*mail chimp*/
+#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Crucible</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="shortcut icon" href="images/irl-favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/style1.css" />
+        <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/animate.js"></script>
+    </head>
+    <body id="page" onload="startAnimation()">
+            
+            <div class="centerblock">
+                <div class="imgblock imga" id="imga">
+                    <img src="images/ft7.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft1.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft6.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft11.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft12.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft13.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft18.png" alt="facetime" height="568" width="320">
+                </div>
+                <div class="imgblock imgb" id="imgb">
+                    
+                    <img src="images/ft14.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft15.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft3.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft5.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft9.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft2.png" alt="facetime" height="568" width="320">
+
+                </div>
+                <div class="imgblock imgc" id="imgc">
+                    <img src="images/ft4.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft3.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft16.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft10.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft8.png" alt="facetime" height="568" width="320">
+                    <img src="images/ft17.png" alt="facetime" height="568" width="320">
+                </div>
+                <div class="textinfo">
+                Art Fabrication • Brass Gold Silver
+                    <div id="mc_embed_signup">
+                        <form action="//pokuasi.us2.list-manage.com/subscribe/post?u=3a03ad231ccbedd4ef05f88b7&amp;id=057c1851ec" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
+                            
+                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="leave your email" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_3a03ad231ccbedd4ef05f88b7_057c1851ec" tabindex="-1" value=""></div>
+                            <div class="clear"><input type="submit" value="thank you" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    <script>
+
+    function startAnimation() {
+        var imgLenA = document.getElementById('imga');
+        var images = imgLenA.getElementsByTagName('img');
+        var counter = 1;
+        if(counter <= images.length){
+            setInterval(function(){
+                images[0].src = images[counter].src;
+                counter++;
+                
+                if(counter === images.length){
+                    counter = 1;
+                }
+            },2000+(Math.random()*6000));
+        }
+        ////////////////////////
+        var imgLenB = document.getElementById('imgb');
+        var imagesB = imgLenB.getElementsByTagName('img');
+        var counterB = 1;
+        if(counterB <= imagesB.length){
+            setInterval(function(){
+                imagesB[0].src = imagesB[counterB].src;
+                counterB++;
+
+                if(counterB === imagesB.length){
+                    counterB = 1;
+                }
+            },2000+(Math.random()*7000));
+        }
+        ////////////////////////
+        var imgLenC = document.getElementById('imgc');
+        var imagesC = imgLenC.getElementsByTagName('img');
+        var counterC = 1;
+        if(counterC <= imagesC.length){
+            setInterval(function(){
+                imagesC[0].src = imagesC[counterC].src;
+                counterC++;
+
+                if(counterC === imagesC.length){
+                    counterC = 1;
+                }
+            },2000+(Math.random()*5000));
+        }
+    }
+
+</script>
+    </body>
+</html>
