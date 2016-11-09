@@ -1,0 +1,17 @@
+
+
+html { 
+  background: url(../images/ty.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#title {
+    font-family:'zagolovochnaya, Conv_andrich-regular',Times, serif;
+    color: #fdf9fa;
+    font-size: 12px;
+    margin-left: 10px;
+    
+}

@@ -11,7 +11,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="shortcut icon" href="images/irl-favicon.ico"> 
         <link rel="stylesheet" type="text/css" href="css/style1.css" />
-        <!-- <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css"> -->
+        <!-- jQuery and Bootstrap JS -->
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+         
+        <!-- BootstrapValidator JS -->
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
 		<script type="text/javascript" src="js/animate.js"></script>
     </head>
     <body id="page" onload="startAnimation()">
@@ -50,18 +54,20 @@
                 <p class="left">
                 Art Fabrication • Brass Gold Silver 
                 <br>
-                <!-- <a href="www.instagram.com/crucible.nyc" target="_blank">
-                    <img src="instagram.jpeg" alt="instafuck" style="width:20px;height:20px;border:0;float:left; margin-top: 8px;">
-                </a> -->
                 </p>
                         <div id="mc_embed_signup">
-                            <form action="//pokuasi.us2.list-manage.com/subscribe/post?u=3a03ad231ccbedd4ef05f88b7&amp;id=057c1851ec" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                                <div id="mc_embed_signup_scroll">
-                                
-                                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_3a03ad231ccbedd4ef05f88b7_057c1851ec" tabindex="-1" value=""></div>
-                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                            <form class="form-horizontal" role="form" id="test-form">
+                                <div class="form-group">
+                                  <div class="col-lg-3 inputGroupContainer">
+                                    <div class="input-group">
+                                      <input type="text" class="form-control" name="email" />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-lg-9 col-lg-offset-3">
+                                    <button type="submit" class="btn btn-default" id="postForm">subscribe</button>
+                                  </div>
                                 </div>
                             </form>
                             <a href="http://www.instagram.com/crucible.nyc" target="_blank">
@@ -119,4 +125,7 @@
 
 </script>
     </body>
+    <footer>
+        <script src="validation-functions.js"></script>
+    </footer>
 </html>
