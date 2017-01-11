@@ -1,0 +1,17 @@
+body {
+	font-size: 9pt;
+}
+
+p {
+	margin: 0px;
+	
+}
+
+.imgs {
+	display: none;
+}
+
+
+img {
+	height: 300px;
+}
