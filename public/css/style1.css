@@ -62,6 +62,9 @@ body {
     background-repeat: no-repeat;
     overflow:hidden;
 }
+.imga, .imgb, .imgc {
+    visibility: hidden;
+}
 
 #imgb {
     height: 0;
