@@ -18,7 +18,7 @@ body {
     width: 100%;
     margin-top: 155px;
     position: absolute;
-    visibility: hidden;
+    visibility: visible;
 }
 
 #displayUpdate {
@@ -27,6 +27,7 @@ body {
     padding-top: 9px;
     padding-left: 10px;
     font-style: italic;
+    cursor: pointer;
 }
 
 .textinfo {
@@ -81,7 +82,7 @@ body {
     /* For desktop: */
 
     #overlay{
-        margin-top: -67px;
+        margin-top: -10px;
     }
     .centerblock {
         width: 960px;

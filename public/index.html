@@ -52,7 +52,7 @@
                 Art Fabrication • Brass Gold Silver 
                 <br><br>
                 </p>
-                <p id="displayUpdate" class="left">Change display</p>
+                <p id="displayUpdate" class="left">view -->> behind the scenes</p>
                     <div id="mc_embed_signup">
                         <form class="form-horizontal" role="form" id="test-form">
                             <div class="form-group">
@@ -78,16 +78,17 @@
     <script>
     document.getElementById('displayUpdate').onclick = function() {
         console.log("clicked");
-        if(document.getElementById('overlay').style.visibility == "" || document.getElementById('overlay').style.visibility == "hidden"){
-            document.getElementById('overlay').style.visibility = "visible";
-            document.getElementById('imga').style.visibility = "hidden";
-            document.getElementById('imgb').style.visibility = "hidden";
-            document.getElementById('imgc').style.visibility = "hidden";
-        } else {
+        if(document.getElementById('overlay').style.visibility == "" || document.getElementById('overlay').style.visibility == "visible"){
             document.getElementById('overlay').style.visibility = "hidden";
             document.getElementById('imga').style.visibility = "visible";
             document.getElementById('imgb').style.visibility = "visible";
             document.getElementById('imgc').style.visibility = "visible";
+        } else {
+            
+            document.getElementById('overlay').style.visibility = "visible";
+            document.getElementById('imga').style.visibility = "hidden";
+            document.getElementById('imgb').style.visibility = "hidden";
+            document.getElementById('imgc').style.visibility = "hidden";
         }
     };
 
