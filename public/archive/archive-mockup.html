@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Crucible</title>
+        <script src="../js/three.js"></script>
+        <script src="../js/Detector.js"></script>
+        <script src="../js/OrbitControls.js"></script>
+        <script src="../js/OBJLoader.js"></script>
+        <script src="../js/MTLLoader.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/archive.css" />
+    </head>
+    <body>
+        <header>Crucible</header>
+        <div id="archiveList">
+        <b>2016</b>
+            <p id="enroot" class="titles">Enroot</p>
+            <p id="enrootimgs" class="imgs">
+                <img src="archive-imgs/Enroot-02.jpg">
+                <img src="archive-imgs/Enroot-03.jpg">
+                <img src="archive-imgs/Enroot-04.jpg">
+            </p>
+            <p id="futurefarmers" class="titles">Futurefarmers</p>
+            <p id="futurefarmersimgs" class="imgs">
+                <img src="archive-imgs/Futurefarmers-01.jpg">
+                <!-- <img src="archive-imgs/Futurefarmers-02.jpg"> -->
+                <!-- <img src="archive-imgs/Futurefarmers-07.jpg"> -->
+                <img src="archive-imgs/Futurefarmers-08.jpg">
+                <img src="archive-imgs/Futurefarmers-10.jpg">
+            </p>
+            <p id="houman" class="titles">Houman Farahmand</p>
+            <p id="houmanimgs" class="imgs">
+                <img src="archive-imgs/Houman-Farahmand-02.jpg">
+                <img src="archive-imgs/Houman-Farahmand-03.jpg">
+                <img src="archive-imgs/Houman-Farahmand-06.jpg">
+                <img src="archive-imgs/Houman-Farahmand-07.jpg">
+            </p>
+            <p id="kate" class="titles">Kate Sullivan</p>
+            <p id="kateimgs" class="imgs">
+                <!-- <img src="archive-imgs/Kiwi-Nguyen-01.jpg"> -->
+                <img src="archive-imgs/Kate-Sullivan-01.jpg">
+                <img src="archive-imgs/Kate-Sullivan-02.jpg">
+            </p>
+            <p id="kiwi" class="titles">Kiwi Nguyen</p>
+            <p id="kiwiimgs" class="imgs">
+                <!-- <img src="archive-imgs/Kiwi-Nguyen-01.jpg"> -->
+                <img src="archive-imgs/Kiwi-Nguyen-04.jpg">
+                <img src="archive-imgs/Kiwi-Nguyen-05.jpg">
+            </p>
+            <p id="leo" class="titles">Leo Castaneda</p>
+            <p id="leoimgs" class="imgs">
+                <img src="archive-imgs/Leo-Castaneda-01.jpg">
+                <!-- <img src="archive-imgs/Leo-Castaneda-02.jpg"> -->
+                <!-- <img src="archive-imgs/Leo-Castaneda-03.jpg"> -->
+                <!-- <img src="archive-imgs/Leo-Castaneda-10.jpg"> -->
+                <img src="archive-imgs/Leo-Castaneda-11.jpg">
+                <!-- <img src="archive-imgs/Leo-Castaneda-12.jpg"> -->
+            </p>
+            <p id="moises" class="titles">Moises Sanabria</p>
+            <p id="moisesimgs" class="imgs">
+                <img src="archive-imgs/Moises-Sanabria-01.jpg">
+                <img src="archive-imgs/Moises-Sanabria-04.jpg">
+                <img src="archive-imgs/Moises-Sanabria-05.jpg">
+                <img src="archive-imgs/Moises-Sanabria-06.jpg">
+                <img src="archive-imgs/Moises-Sanabria-07.jpg">
+                <img src="archive-imgs/Moises-Sanabria-08.jpg">
+                <img src="archive-imgs/Moises-Sanabria-09.jpg">
+                <img src="archive-imgs/Moises-Sanabria-10.jpg">
+                <img src="archive-imgs/Moises-Sanabria-18.jpg">
+
+            </p>
+            <p id="nandi" class="titles">Nandi Loaf</p>
+            <p id="nandiimgs" class="imgs">
+                <img src="archive-imgs/Nandi-Loaf-02.jpg">
+                <img src="archive-imgs/Nandi-Loaf-04.jpg">
+                <img src="archive-imgs/Nandi-Loaf-06.jpg">
+                <img src="archive-imgs/Nandi-Loaf-07.jpg">
+            </p>
+            <p id="victor" class="titles">Victor Barragan</p>
+            <p id="victorimgs" class="imgs">
+                <img src="archive-imgs/Victor-Barragan-02.jpg">
+                <img src="archive-imgs/Victor-Barragan-03.jpg">
+                <img src="archive-imgs/Victor-Barragan-06.jpg">
+            </p>
+        </div>
+        <div id="row-1">
+            <div>
+                <h1>Nandi Loaf</h1>
+                <h2>Title, Year</h2>
+                <p>Production Process description 
+                Most casting companies in the NYC area use machines (centrifugal, vacuum chamber) for steps 6 and 7 of the lost- wax casting process when casting jewelry or small sculptures. These techniques guarantee clean, detailed casts if set
+                up properly because the pouring method is more reliable. A centrifugal casting machine uses the weight of the metal and centrifugal force to fill the shell. A vacuum casting machine uses a vacuum to suck the molten metal into the
+                shell.
+                </p>
+            </div>
+            <canvas id="canvasID"></canvas>
+        </div>
+        <div id="row-2" class="horizontal-scroll-wrapper">
+            <img src="mockup-assets/Nandi-Loaf-01.jpg">
+            <img src="mockup-assets/Nandi-Loaf-02.jpg">
+            <img src="mockup-assets/Nandi-Loaf-03.png">
+            <img src="mockup-assets/Nandi-Loaf-04.png">
+        </div>
+        
+        
+        
+    </body>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript">
+        var tagName;
+
+        function revealImgs(Tname) {
+            
+            //console.log(Tname);
+            if (document.getElementById(Tname).style.display == "" || document.getElementById(Tname).style.display == "none"){
+                //close any open images
+                //collapseImgs();
+                document.getElementById(Tname).style.display = "block"; 
+           } else {
+                document.getElementById(Tname).style.display = "none";
+           }
+        };
+
+        var TitleElements = document.getElementById("archiveList").querySelectorAll(".titles");
+        for (var i = 0; i < TitleElements.length; i++) {
+          TitleElements[i].addEventListener("click", function() {
+            //console.log(this.id);
+            tagName = (this.id + "imgs" ).toString();
+            revealImgs(tagName);
+          });
+        }
+
+        var ImgElements = document.getElementById("archiveList").querySelectorAll("img");
+        for (var i = 0; i < ImgElements.length; i++) {
+          ImgElements[i].addEventListener("click", function() {
+            console.log(this.src);
+            var win = window.open(this.src, '_blank');
+            win.focus();
+            // tagName = (this.id + "imgs" ).toString();
+            // revealImgs(tagName);
+          });
+        }
+
+        // function collapseImgs() {
+        // var TitleElements = document.getElementById("archiveList").querySelectorAll(".titles");
+        // console.log(TitleElements.length);
+        //     for (var i = 0; i < TitleElements.length; i++) {
+        //         console.log(TitleElements[i].id);
+        //         tagName = (this.id + "imgs" ).toString();
+        //         console.log(tagName);
+        //         // document.getElementById(tagName).style.display = "none";
+            
+        //     }
+        // }
+
+    </script>
+    <footer>
+    </footer>
+</html>

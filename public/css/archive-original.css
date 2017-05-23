@@ -1,0 +1,28 @@
+body {
+	font-size: 9pt;
+}
+
+p {
+	margin: 0px;
+	
+}
+
+.imgs {
+	display: none;
+}
+
+
+img {
+	height: 300px;
+}
+
+#canvasID {
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 300px !important;
+    height: 300px !important;
+}
