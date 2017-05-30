@@ -28,7 +28,6 @@ img {
 header {
 	width: 100%;
 	height: 22px;
-	background-color: #9999ff;
 	left: 0;
 	top: 0;
 	padding: 4px;
@@ -39,9 +38,8 @@ header {
 #archiveList {
 	width: 15%;
 	left: 0;
-	top: 30px;
+	/*top: 30px;*/
 	padding: 4px;
-	background-color: #b3b3ff;
 	position: absolute;
 }
 
