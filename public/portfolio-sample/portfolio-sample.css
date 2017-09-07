@@ -1,0 +1,96 @@
+body,h1,h2 {
+	font-size: 9pt;
+}
+
+p {
+	margin: 0px;
+	
+}
+
+.imgs {
+	display: none;
+}
+
+
+img {
+	height: 300px;
+}
+
+#canvasID {
+    padding: 0;
+    position: relative;
+    width: 300px !important;
+    height: 300px !important;
+    display: inline-block;
+    float: left;
+}
+
+header {
+	width: 100%;
+	height: 22px;
+	left: 0;
+	top: 0;
+	padding: 4px;
+	position: absolute;
+	font-size: 21px;
+}
+
+#archiveList {
+	width: 15%;
+	left: 0;
+	/*top: 30px;*/
+	padding: 4px;
+	position: absolute;
+}
+
+#row-1 {
+	height: 300px;
+	left:15%;
+	top: 30px;
+	width: 85%;
+	background-color: #e6e6ff;
+	position: absolute;
+}
+
+#row-1 div {
+	width: 285px;
+	height: 285px;
+	float: left;
+	position: relative;
+	margin: 15px;
+}
+
+#row-2 {
+	height: 700px;
+	left:15%;
+	top:330px;
+	width: 85%;
+	background-color: #ccccff;
+	position: absolute;
+	overflow-x: auto;
+    white-space: nowrap;
+}
+
+/*.horizontal-scroll-wrapper {
+	overflow-y: auto;
+  	overflow-x: hidden;
+  	transform: rotate(-90deg);
+  	transform-origin: right top;
+  	transform:rotate(-90deg) translateY(-100px);
+}
+
+.horizontal-scroll-wrapper > img {
+  width: 100px;
+  height: 100px;
+  transform: rotate(90deg);
+  transform-origin: right top;
+}*/
+
+#row-2 img {
+	position: relative;
+	width: 300px;
+	height: auto;
+	top: 10px;
+	vertical-align: top;
+	padding: 4px;
+}
