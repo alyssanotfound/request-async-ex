@@ -149,10 +149,10 @@ body {
     #mc_embed_signup a img {
         float: right;
     }
-
+/*
     .form-control {
         outline: #FFFFFF solid thin !important;
-    }
+    }*/
 }
 
 @media (max-height: 580px) {
@@ -175,9 +175,9 @@ body {
     font-family: 'Oriya Sangam MN', sans-serif;
 }
 
-.form-control {
+/*.form-control {
     outline: #000000 solid thin;
-}
+}*/
 
 
 
