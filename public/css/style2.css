@@ -1,5 +1,15 @@
 
 
+@font-face {
+    font-family: 'Oriya Sangam MN';
+    src: url('OriyaSangamMN.eot');
+    src: url('OriyaSangamMN.eot?#iefix') format('embedded-opentype'),
+        url('OriyaSangamMN.woff') format('woff'),
+        url('OriyaSangamMN.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html { 
   background: url(../images/ty.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -9,7 +19,7 @@ html {
 }
 
 #title {
-    font-family:'zagolovochnaya, Conv_andrich-regular',Times, serif;
+    font-family: 'Oriya Sangam MN', sans-serif;
     color: #fdf9fa;
     font-size: 12px;
     margin-left: 10px;

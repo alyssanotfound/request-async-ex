@@ -1,5 +1,15 @@
+@font-face {
+    font-family: 'Oriya Sangam MN';
+    src: url('OriyaSangamMN.eot');
+    src: url('OriyaSangamMN.eot?#iefix') format('embedded-opentype'),
+        url('OriyaSangamMN.woff') format('woff'),
+        url('OriyaSangamMN.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Oriya Sangam MN',sans-serif;
     font-size: 14px;
 }
 
@@ -23,9 +33,9 @@ body {
 
 #displayUpdate {
     color: #b5b5b5;
-    font-size: 8px;
-    padding-top: 9px;
-    padding-left: 10px;
+    font-size: 12px;
+    /*padding-top: 9px;*/
+    /*padding-left: 10px;*/
     font-style: italic;
     cursor: pointer;
 }
@@ -54,6 +64,8 @@ body {
     right: 0;
     margin: auto;
 }
+
+
 
 .imgblock {
     width: 320px;
@@ -119,8 +131,11 @@ body {
     }
 
     .textinfo .left {
+        font-family: 'Oriya Sangam MN', sans-serif;
         float: left;
         display: inline-block;
+        text-align: left;
+        line-height: 18px;
     }
 
     #mc_embed_signup {
@@ -134,6 +149,10 @@ body {
     #mc_embed_signup a img {
         float: right;
     }
+
+    .form-control {
+        outline: #FFFFFF solid thin !important;
+    }
 }
 
 @media (max-height: 580px) {
@@ -145,9 +164,19 @@ body {
 /*mail chimp*/
 #mc_embed_signup {
     background:#fff; 
-    font:12px sans-serif; 
+    font-size:12px;
+    font-family: 'Oriya Sangam MN', sans-serif; 
     display: inline-block;
 
+}
+
+.btn {
+    margin-top: 2px;
+    font-family: 'Oriya Sangam MN', sans-serif;
+}
+
+.form-control {
+    outline: #000000 solid thin;
 }
 
 
