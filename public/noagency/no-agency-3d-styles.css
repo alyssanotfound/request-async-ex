@@ -1,0 +1,107 @@
+body {
+  background-color: black;
+  margin: 0px;
+  font-family: Courier, monospace;
+  color: #00ff00;
+}
+
+.Grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.Grid-cell {
+  margin: 0.7em;
+  display: flex;
+  flex: 1 100%;
+  flex-flow: row wrap;
+  justify-content: center; /* align horizontal */ 
+  align-items: center; /* align vertical */
+}
+
+.logo {
+	padding: 1em;
+}
+
+.Grid-cell p {
+	display: flex;
+	flex: 1 100%;
+	/*border: 1px solid gainsboro;*/
+	margin: 0px;
+}
+
+.Grid-cell a {
+	position: relative;
+	text-decoration: none;
+	color: #00ff00;
+}
+
+.fullborder {
+	border: 0.5px solid #00ff00;
+}
+
+.selected {
+	font-size: 2em;
+	border-top: 0.5px solid #00ff00;
+	border-bottom: 0.5px solid #00ff00;
+}
+
+footer {
+	width: 100%;
+	height: auto;
+	border-top: 0.5px solid #00ff00;
+}
+footer p {
+	/*border: 0.1px solid red;*/
+	font-size: 0.5em;
+	padding: 0.7em;
+	margin: 0px;
+	padding-right: 0.5em;
+	float: right;
+}
+
+header {
+	background-color: #00ff00;
+	color: black;
+	padding: 0.5em;
+	width: 100%;
+}
+
+.nav {
+	float:right;
+	padding:0.8em;
+}
+
+.profile {
+	padding:0.8em;
+}
+
+#threeD-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	left: 0;
+	top: 0;
+	height: 300px;
+	width: 100%;
+	background: linear-gradient(white, #00ff00);
+}
+
+#threeD-content div {
+	width: 100%;
+
+	/*border: 1px solid pink;*/
+}
+
+/* Base classes for all media */
+
+
+/* Small to medium screens */
+@media (min-width: 24em) {
+
+}
+
+/* Large screens */
+@media (min-width: 48em) {
+
+}
