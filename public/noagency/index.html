@@ -8,10 +8,25 @@
 <meta name=MobileOptimized content=320>
 <meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1">
 <meta name=description content="No Agency 3D Models">
+
+<!-- loading / rendering  -->
+<script src="js/three.js"></script>
+<script src="js/Detector.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="js/OBJLoader.js"></script>
+<script src="js/MTLLoader.js"></script>
+<script src="js/stats.min.js"></script>
+<!-- main JS  -->
+<script src="js/models.js"></script>
 <link href=no-agency-3d-styles.css rel=stylesheet type=text/css>
 </head>
 
 <body>
+<!-- <div id="stats"></div> -->
+  <div id="loadingOverlay">
+    LOADING <span id="modelCount"></span><br>
+    last load: <span id="loadCount"></span>
+  </div>
 <div class="Grid">
   <header>NO AGENCY NEW YORK 3D MODELS</header>
   <div class="Grid-cell fullborder">
@@ -19,20 +34,21 @@
   </div>
   <div class="Grid-cell fullborder">
   	<div id="threeD-content">
-  		<div><img class="profile" src="assets/profile.png" alt="No Agency profile" width="30em" height="30em"></div>
-  		<div><img class="nav" src="assets/nav.png" alt="navigation" width="30em" height="30em"></div>
+  		<!-- <div><img class="profile" src="assets/profile.png" alt="No Agency profile" width="30em" height="30em"></div> -->
+      <canvas id="canvasID"></canvas>
+  		<!-- <div><img class="nav" src="assets/nav.png" alt="navigation" width="30em" height="30em"></div> -->
   	</div>
   </div>
-  <div class="Grid-cell">
-  	<p class="selected"><a href="">MAY DANIELS</a></p>
-  	<p><a href="">TORRAINE FUTURUM</a></p>
-  	<p><a href="">GABRIETTE</a></p>
-  	<p><a href="">KATERINA TANNENBAUM</a></p>
-  	<p><a href="">ELOISA SANTOS</a></p>
-  	<p><a href="">TAYLOR JEANNE</a></p>
-  	<p><a href="">SEASHELL COKER</a></p>
-  	<p><a href="">SABRINA FUENTES</a></p>
-  	<p><a href="">VERA LE SAVOY</a></p>
+  <div id="listOfNames" class="Grid-cell">
+    <p id="eloisa">ELOISA SANTOS</p>
+    <p id="giannina">GIANNINA</p>
+    <p id="kat">KATERINA TANNENBAUM</p>
+  	<p id="may">MAY DANIELS</p>
+  	<p id="torraine">TORRAINE FUTURUM</p>
+  	<p id="gabriette">GABRIETTE</p>
+  	<p id="taylor">TAYLOR JEANNE</p>
+  	<p id="sabrina">SABRINA FUENTES</p>
+  	<p id="vera">VERA LE SAVOY</p>
   </div>
 </div>
 <footer><p>NO AGENCY NEW YORK © 2018</p></footer>

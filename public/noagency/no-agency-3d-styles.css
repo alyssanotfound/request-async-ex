@@ -5,6 +5,22 @@ body {
   color: #00ff00;
 }
 
+#loadingOverlay {
+  position: absolute;
+  background-color: blue;
+  width: 100%;
+  height: 100%;
+  z-index:999999;
+}
+
+.canvasID {
+  padding-left: 0; 
+  padding-right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  display: block;
+}
+
 .Grid {
   display: flex;
   flex-flow: row wrap;
@@ -82,9 +98,9 @@ header {
 	justify-content: space-between;
 	left: 0;
 	top: 0;
-	height: 300px;
+	height: auto;
 	width: 100%;
-	background: linear-gradient(white, #00ff00);
+	background: white;
 }
 
 #threeD-content div {
