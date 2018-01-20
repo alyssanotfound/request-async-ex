@@ -67,7 +67,7 @@ function init() {
     scene.add(sunLight);
 
     //path names must match ids of p tags
-    var paths = ["eloisa","giannina","kat"]
+    var paths = ["eloisa","giannina","yulu"]
 
     // add event listeners to list of names
     console.log(paths);
@@ -145,6 +145,10 @@ function init() {
     renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
+    // renderer.setSize(document.getElementById("threeD-content").clientWidth, document.getElementById("threeD-content").clientHeight)
+    // var ren_W = document.getElementById("threeD-content").clientWidth;
+    // var ren_H = (ren_W*window.innerHeight)/window.innerWidth;
+    // renderer.setSize(ren_W, ren_H);
     renderer.setClearColor(new THREE.Color(0xffffff)); //2a6489
     container.appendChild(renderer.domElement);
   
@@ -176,6 +180,10 @@ function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight; 
     camera.updateProjectionMatrix(); 
     renderer.setSize( window.innerWidth, window.innerHeight );
+    // var ren_W = document.getElementById("threeD-content").clientWidth;
+    // var ren_H = (ren_W*window.innerHeight)/window.innerWidth;
+    // renderer.setSize(ren_W, ren_H);
+
 }
 
 function animate() {

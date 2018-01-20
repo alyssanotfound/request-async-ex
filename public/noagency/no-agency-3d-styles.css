@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: blue;
   margin: 0px;
   font-family: Courier, monospace;
   color: #00ff00;
@@ -35,6 +35,10 @@ body {
   align-items: center; /* align vertical */
 }
 
+.zero-margin {
+	margin: 0.0em;
+}
+
 .logo {
 	padding: 1em;
 }
@@ -49,7 +53,7 @@ body {
 .Grid-cell a {
 	position: relative;
 	text-decoration: none;
-	color: #00ff00;
+	color: blue;
 }
 
 .fullborder {
@@ -77,9 +81,9 @@ footer p {
 }
 
 header {
-	background-color: #00ff00;
-	color: black;
-	padding: 0.5em;
+	background-color: blue;
+	color: #00ff00;
+	padding: 0.7em;
 	width: 100%;
 }
 
