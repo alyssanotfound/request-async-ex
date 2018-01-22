@@ -115,7 +115,7 @@ function init() {
                     // console.log(obj.name);
                     scene.add(obj); 
                     // obj.visible = false;
-                    j++; 
+                    // j++; 
                     loadNextPath(); 
                 });
             });
