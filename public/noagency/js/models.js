@@ -120,12 +120,12 @@ function init() {
                     storedTexture[j] = obj.children[0].material.map;
                     // console.log(obj.name);
                     scene.add(obj); 
-                    console.log(obj);
+                    // console.log(obj);
                     obj.visible = true;
                     obj.children["0"].geometry.computeBoundingSphere();
                     var bottOfFeet=obj.children["0"].geometry.boundingSphere.center.y-obj.children["0"].geometry.boundingSphere.radius;
                     // console.log(bottOfFeet);
-                    console.log(gridHelper); 
+                    // console.log(gridHelper); 
                     gridHelper.position.y=bottOfFeet;
                     loadNextPath(); 
                 });
@@ -153,6 +153,7 @@ function init() {
     canvas.style.marginLeft = "auto";
     canvas.style.marginRight = "auto";
     canvas.style.display = "block";
+    canvas.allowTouchScrolling = true;
     renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
