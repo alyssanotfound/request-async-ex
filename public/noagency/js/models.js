@@ -114,7 +114,7 @@ function init() {
                     storedTexture[j] = obj.children[0].material.map;
                     // console.log(obj.name);
                     scene.add(obj); 
-                    obj.visible = false;
+                    // obj.visible = false;
                     j++; 
                     loadNextPath(); 
                 });
