@@ -67,7 +67,7 @@ function init() {
     scene.add(sunLight);
 
     //path names must match ids of p tags
-    var paths = ["eloisa","giannina","yulu"]
+    var paths = ["yulu"]
 
     // add event listeners to list of names
     console.log(paths);
