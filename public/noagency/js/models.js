@@ -32,11 +32,11 @@ function init() {
     }
     /* Camera */
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = 2.5;
+    camera.position.z = 2.3;
 
     /* Controls */
     var controls = new THREE.OrbitControls( camera );
-    console.log(controls);
+    // console.log(controls);
     controls.enableDamping = true; 
     controls.dampingFactor = 0.25; 
     controls.enableZoom = false;
@@ -44,10 +44,10 @@ function init() {
     /* Scene */
     lighting = false;
 
-    ambient = new THREE.AmbientLight(0xffffff, 1.0);
+    ambient = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambient);
 
-    topLeftLight = new THREE.DirectionalLight("rgb(184,176,149)", 0.9);
+    topLeftLight = new THREE.DirectionalLight("rgb(184,176,149)", 0.34);
     topLeftLight.position.set(-40, 10, 50);
     topLeftLight.target.position.set(0.5,0,1.5);
     topLeftLight.target.updateMatrixWorld();
@@ -66,6 +66,12 @@ function init() {
     sunLight.castShadow = false;
     scene.add(sunLight);
 
+    var size = 0.8; 
+    var divisions = 0.1; 
+    var gridHelper = new THREE.GridHelper( size, divisions ); 
+    gridHelper.setColors( 0xf618ef, 0x0ccf0c );
+    scene.add( gridHelper );
+    // console.log( gridHelper );
     //path names must match ids of p tags
     var paths = ["yulu"]
 
@@ -114,8 +120,13 @@ function init() {
                     storedTexture[j] = obj.children[0].material.map;
                     // console.log(obj.name);
                     scene.add(obj); 
-                    // obj.visible = false;
-                    // j++; 
+                    console.log(obj);
+                    obj.visible = true;
+                    obj.children["0"].geometry.computeBoundingSphere();
+                    var bottOfFeet=obj.children["0"].geometry.boundingSphere.center.y-obj.children["0"].geometry.boundingSphere.radius;
+                    // console.log(bottOfFeet);
+                    console.log(gridHelper); 
+                    gridHelper.position.y=bottOfFeet;
                     loadNextPath(); 
                 });
             });
@@ -149,7 +160,7 @@ function init() {
     // var ren_W = document.getElementById("threeD-content").clientWidth;
     // var ren_H = (ren_W*window.innerHeight)/window.innerWidth;
     // renderer.setSize(ren_W, ren_H);
-    renderer.setClearColor(new THREE.Color(0xffffff)); //2a6489
+    renderer.setClearColor(new THREE.Color(0xF8F8F8)); //2a6489
     container.appendChild(renderer.domElement);
   
 }
