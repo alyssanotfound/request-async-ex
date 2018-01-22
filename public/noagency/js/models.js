@@ -121,7 +121,11 @@ function init() {
                     // console.log(obj.name);
                     scene.add(obj); 
                     // console.log(obj);
-                    obj.visible = false;
+                    if (obj.name == "sabrina") {
+                        obj.visible = true;
+                    } else {
+                       obj.visible = false; 
+                    }
                     obj.children["0"].geometry.computeBoundingSphere();
                     var bottOfFeet=obj.children["0"].geometry.boundingSphere.center.y-obj.children["0"].geometry.boundingSphere.radius;
                     // console.log(bottOfFeet);
