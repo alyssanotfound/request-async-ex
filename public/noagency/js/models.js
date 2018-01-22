@@ -73,7 +73,7 @@ function init() {
     scene.add( gridHelper );
     // console.log( gridHelper );
     //path names must match ids of p tags
-    var paths = ["yulu"]
+    var paths = ["yulu", "sabrina"]
 
     // add event listeners to list of names
     console.log(paths);
@@ -121,7 +121,7 @@ function init() {
                     // console.log(obj.name);
                     scene.add(obj); 
                     // console.log(obj);
-                    obj.visible = true;
+                    obj.visible = false;
                     obj.children["0"].geometry.computeBoundingSphere();
                     var bottOfFeet=obj.children["0"].geometry.boundingSphere.center.y-obj.children["0"].geometry.boundingSphere.radius;
                     // console.log(bottOfFeet);
