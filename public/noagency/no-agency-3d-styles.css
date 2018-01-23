@@ -162,6 +162,7 @@ header {
 	height: auto;
 	width: 100%;
 	background: white;
+	z-index: -100;
 }
 
 #threeD-content div {
