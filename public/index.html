@@ -13,134 +13,57 @@
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/style1.css" />
         <!-- jQuery and Bootstrap JS -->
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
-        
+        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>  
         <!-- BootstrapValidator JS -->
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
 		
     </head>
-    <body id="page">
+    <body>
             
-            <div class="centerblock">
-            <div ><img id="overlay" src="images/crucible-office.png"></div>
-                <div class="imgblock imga" id="imga">
-                    <img src="images/ft17.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft16.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft9.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft3.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft6.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft12.png" alt="facetime" height="568" width="320">                    
+            <div id="centerblock">
+                <h1>
+                    CRUCIBLE NEW YORK 
+                </h1>
+                <div id="col1">
+                    <span class="italics">
+                    Entry
+                    </span>
+                    <br>
+                    № 1 . . . . . . . .
+                    <br>
+                    № 2 . . . . . . . .
                 </div>
-                <div class="imgblock imgb" id="imgb">
-                    <img src="images/ft4.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft14.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft15.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft5.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft11.png" alt="facetime" height="568" width="320">
+                <div id="col2">
+                    <span class="italics">
+                    Client
+                    </span>
+                    <br>
+                    <a href="a/Barragan.pdf" target="_blank">Victor Barragan</a>
+                    <br>
+                    <a href="a/Assiff.pdf" target="_blank">Michael Assiff</a>
                 </div>
-                <div class="imgblock imgc" id="imgc">
-                    <img src="images/ft13.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft7.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft1.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft10.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft8.png" alt="facetime" height="568" width="320">
-                    <img src="images/ft2.png" alt="facetime" height="568" width="320">     
-                </div>
-
-                <div class="textinfo">
-                <p class="left">
-                CRUCIBLE NEW YORK 
-                <br> 
-                Metal Fabrication | Brass Copper Gold Silver 
-                <br>
-                info@crucible.nyc
-                <br>
-                <!-- <span id="displayUpdate" class="left">view behind the scenes</span> -->
-                </p>
-                    <div id="mc_embed_signup">
-                        <form class="form-horizontal" role="form" id="test-form">
-                            <div class="form-group">
-                              <div class="col-lg-3 inputGroupContainer">
-                                <div class="input-group">
-                                  <input type="text" class="form-control" name="email" />
-                                </div>
-                              </div>
+                <div id="bottom-row">
+                    info@crucible.nyc
+                    <br>
+                    <br>
+                    <form class="form-horizontal" role="form" id="test-form">
+                        <div class="form-group">
+                          <div class="col-lg-3 inputGroupContainer">
+                            <div class="input-group">
+                              <input type="text" class="form-control" name="email" />
                             </div>
-                            <div class="form-group">
-                              <div class="col-lg-9 col-lg-offset-3">
-                                <button type="submit" class="btn btn-default" id="postForm">subscribe</button>
-                              </div>
-                            </div>
-                        </form>
-                        <a href="http://www.instagram.com/crucible.nyc" target="_blank">
-                            <img src="instagram.jpeg" alt="instafuck" style="width:20px;height:20px;border:0; margin-top: 8px;">
-                        </a>
-                    </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-lg-9 col-lg-offset-3">
+                            <button type="submit" class="btn btn-default" id="postForm">subscribe</button>
+                          </div>
+                        </div>
+                    </form>
+                    <a href="http://www.instagram.com/crucible.nyc" target="_blank">
+                        <img src="instagram.jpeg" alt="ig" style="width:20px;height:20px;border:0; margin-top: 8px;">
+                    </a>
                 </div>
-            </div>
-
-<!--     <script>
-    document.getElementById('displayUpdate').onclick = function() {
-        console.log("clicked");
-        if(document.getElementById('overlay').style.visibility == "" || document.getElementById('overlay').style.visibility == "visible"){
-            document.getElementById('overlay').style.visibility = "hidden";
-            document.getElementById('imga').style.visibility = "visible";
-            document.getElementById('imgb').style.visibility = "visible";
-            document.getElementById('imgc').style.visibility = "visible";
-        } else {
-            
-            document.getElementById('overlay').style.visibility = "visible";
-            document.getElementById('imga').style.visibility = "hidden";
-            document.getElementById('imgb').style.visibility = "hidden";
-            document.getElementById('imgc').style.visibility = "hidden";
-        }
-    };
-
-    function startAnimation() {
-        var imgLenA = document.getElementById('imga');
-        var images = imgLenA.getElementsByTagName('img');
-        var counter = 1;
-        if(counter <= images.length){
-            setInterval(function(){
-                images[0].src = images[counter].src;
-                counter++;
-                
-                if(counter === images.length){
-                    counter = 1;
-                }
-            },2000+(Math.random()*6000));
-        }
-        ////////////////////////
-        var imgLenB = document.getElementById('imgb');
-        var imagesB = imgLenB.getElementsByTagName('img');
-        var counterB = 1;
-        if(counterB <= imagesB.length){
-            setInterval(function(){
-                imagesB[0].src = imagesB[counterB].src;
-                counterB++;
-
-                if(counterB === imagesB.length){
-                    counterB = 1;
-                }
-            },2000+(Math.random()*7000));
-        }
-        ////////////////////////
-        var imgLenC = document.getElementById('imgc');
-        var imagesC = imgLenC.getElementsByTagName('img');
-        var counterC = 1;
-        if(counterC <= imagesC.length){
-            setInterval(function(){
-                imagesC[0].src = imagesC[counterC].src;
-                counterC++;
-
-                if(counterC === imagesC.length){
-                    counterC = 1;
-                }
-            },2000+(Math.random()*5000));
-        }
-    }
-
-</script> -->
     </body>
     <footer>
         <script src="validation-functions.js"></script>

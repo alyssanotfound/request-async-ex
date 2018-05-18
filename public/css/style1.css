@@ -1,183 +1,80 @@
 @font-face {
-    font-family: 'Oriya Sangam MN';
-    src: url('OriyaSangamMN.eot');
-    src: url('OriyaSangamMN.eot?#iefix') format('embedded-opentype'),
-        url('OriyaSangamMN.woff') format('woff'),
-        url('OriyaSangamMN.ttf') format('truetype');
+    font-family: 'ZagolovochnayaW01-Book';
+    src: url('ZagolovochnayaW01-Book.eot');
+    src: url('ZagolovochnayaW01-Book.eot?#iefix') format('embedded-opentype'),
+        url('ZagolovochnayaW01-Book.woff') format('woff'),
+        url('ZagolovochnayaW01-Book.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-    font-family: 'Oriya Sangam MN',sans-serif;
+    font-family: 'ZagolovochnayaW01-Book',sans-serif;
     font-size: 14px;
 }
-
-#mce-EMAIL {
-    width: 200px;
-    margin-top: 10px;
-    font-family: sans-serif;
-}
-
-#mc-embedded-subscribe {
-    margin-top: 5px;
-    font-family: sans-serif;
-}
-
-#overlay{
-    width: 100%;
-    margin-top: 155px;
-    position: absolute;
-    visibility: visible;
-}
-
-#displayUpdate {
-    color: #b5b5b5;
-    font-size: 12px;
-    /*padding-top: 9px;*/
-    /*padding-left: 10px;*/
-    font-style: italic;
-    cursor: pointer;
-}
-
-
-
-.textinfo {
-    text-align: center;
-    line-height: 2em;
-    font-weight: bold;
-
-}
-
-.textinfo input {
-    font-size: 12px;
-}
-
-.centerblock {
+#centerblock {
     width: 320px;
-    height: 610px;
-    /*border: 1px solid black;*/
+    height: 538px;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+    border: 1px black solid;
+
 }
 
-
-
-.imgblock {
-    width: 320px;
-    height: 568px;
-    /*border: 1px solid pink;*/
-    float: left;
-    background-size: 320px 568px;
-    background-repeat: no-repeat;
-    overflow:hidden;
-}
-.imga, .imgb, .imgc {
-    visibility: hidden;
+h1 {
+    width: 100%;
+    position: relative;
+    margin-top: 11px;
+    margin-left: 17px;
+    font-size: 1.5em;
 }
 
-#imgb {
-    height: 0;
-}
-#imgc {
-    height: 0;
-}
-#imgb > * {
-    display: none;
-    height: 0;
-}
-#imgc > * {
-    display: none;
-    height: 0;
-}
-
-@media only screen and (min-width: 1026px) {
-    /* For desktop: */
-
-    #overlay{
-        margin-top: -10px;
-    }
-    .centerblock {
-        width: 960px;
-    }
-    .textinfo {
-        float: right;
-        text-align: right;
-    }
-    #imgb > * {
-        display: block;
-        width: 320px;
-        height: 568px;
-    }
-    #imgc > * {
-        display: block;
-        width: 320px;
-        height: 568px;
-    }
-    #imgb {
-        height: 568px;
-    }
-    #imgc {
-        height: 568px;
-    }
-
-    .textinfo {
-        width: 960px;
-        line-height: 1em;
-    }
-
-    .textinfo .left {
-        font-family: 'Oriya Sangam MN', sans-serif;
-        float: left;
-        display: inline-block;
-        text-align: left;
-        line-height: 18px;
-    }
-
-    #mc_embed_signup {
-    background:#fff; 
-    font:14px sans-serif; 
-    float: right;
+#col1 {
+    width: auto;
     display: inline-block;
-    padding-top: 15px;
-    }
+    margin-left: 17px;
+}
 
-    #mc_embed_signup a img {
-        float: right;
-    }
+#col2 {
+    width: auto;
+    display: inline-block;
+}
+
+#bottom-row {
+    width: 100%;
+    margin-top: 100px;
+    margin-left: 17px;
+}
 /*
-    .form-control {
-        outline: #FFFFFF solid thin !important;
-    }*/
+.textinfo input {
+    font-size: 12px;
+}*/
+
+.italics {
+    font-style: italic;
 }
 
-@media (max-height: 580px) {
-    .centerblock {
-        bottom: auto;
-    }
+input {
+    border: 1px black solid;
+    height: 18px;
 }
 
-/*mail chimp*/
-#mc_embed_signup {
-    background:#fff; 
-    font-size:12px;
-    font-family: 'Oriya Sangam MN', sans-serif; 
-    display: inline-block;
-
+a {
+    text-decoration: none;
 }
 
 .btn {
+    background-color: white;
+    border: 1px black solid;
     margin-top: 2px;
-    font-family: 'Oriya Sangam MN', sans-serif;
+    font-family: 'ZagolovochnayaW01-Book', sans-serif;
+    height: 22px;
 }
 
-/*.form-control {
-    outline: #000000 solid thin;
-}*/
 
 
 
