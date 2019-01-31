@@ -44,9 +44,15 @@ h1 {
     display: inline-block;
 }
 
+#center-row {
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 17px;
+}
+
 #bottom-row {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: 17px;
 }
 /*
