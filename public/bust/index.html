@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27 / F / NYC</title>
+    
+    <meta name="description" content="Alyssa Davis">
+    <meta name="author" content="Alyssa Davis">
+    
+    <!-- loading / rendering  -->
+    <script src="js/three.js"></script>
+    <script src="js/Detector.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/MTLLoader.js"></script>
+    <script src="js/stats.min.js"></script>
+    <!-- shopify  -->
+    <!-- <script type="text/javascript" src="js/shopify-script.js"></script> -->
+    <!-- main styles / js  -->
+    <script src="js/main.js"></script>
+    <script src="js/itemDescriptions.js"></script>
+    <link rel="stylesheet" href="css/main-style.css">
+</head>
+<body id="mainbody">
+    <div id="stats"></div>
+    <div id="loadingOverlay"> 
+    LOADING <span id="modelCount"></span><br>
+    last load: <span id="loadCount"></span>
+    </div>
+    <div id= "header"><span id="title">27 / F / NYC</span><span id="cart"></span></div>
+    <div id="layer2block">
+        <div id="leftblock">            
+        </div>
+        <div id="centerblock">  
+            <div id="itemBox-top" class="itemBox"> 
+                <p id="itemName-top" class="itemName"></p>
+            </div>
+            <div id="toggleView">
+                <span id="twod"></span>  <span id="threed"></span>
+                <!-- <span id="twod">2D</span> | <span id="threed">3D</span> -->
+            </div>
+            <div id="LRarrows" >
+                <img id="left" src="assets/left-arrow.png">
+                <img id="right" src="assets/right-arrow.png">
+            </div>
+            <div id="imgDisplay">
+                <img id="twoD-scan" src="">
+                <img id="threeD-gif" src="">
+            </div>
+            
+        </div>
+        <div id="rightblock">
+            <!-- <div id="infoButton">i</div> -->
+            <!-- <div id="horizLine"><hr /></div> -->
+            <div id="itemBox-bottom" class="itemBox"> 
+                <p id="itemName-bottom" class="itemName"></p>
+            </div>
+            <div id="infoPanel">
+                <p id="itemMaterial"></p>
+                <p id="itemDimensions"></p>
+                <p id="itemPrice"></p>
+                <br>
+                <p id="itemEdition"></p>
+                <br>
+                <p>Model: Daniela Lalita</p>
+                <p>Modeled by Anna Teterkina</p>
+                <!-- <p id="itemCast"></p> -->
+                <!-- <p id="itemChain"></p> -->
+                
+            </div>
+            <div id="buyButtonWrapper"><div></div></div>
+        </div>
+    </div>
+    <canvas id="canvasID"></canvas>
+</body>
+</html>
